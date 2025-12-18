@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --neon-green: #00FF00;
+  --neon-cyan: #00FFFF;
+  --dark-bg: #0a0a0f;
+  --dark-surface: #12121a;
+  --dark-elevated: #1a1a25;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark-bg);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-surface);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a4a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a5a;
+}
+
+/* Neon glow effects */
+.neon-text {
+  text-shadow:
+    0 0 5px var(--neon-green),
+    0 0 10px var(--neon-green),
+    0 0 20px var(--neon-green);
+}
+
+.neon-border {
+  box-shadow:
+    0 0 5px var(--neon-green),
+    0 0 10px var(--neon-green),
+    inset 0 0 5px rgba(0, 255, 0, 0.1);
+}
+
+.neon-cyan-border {
+  box-shadow:
+    0 0 5px var(--neon-cyan),
+    0 0 10px var(--neon-cyan),
+    inset 0 0 5px rgba(0, 255, 255, 0.1);
+}
+
+/* Animated pulse for status indicators */
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+  }
+}
+
+.pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(26, 26, 37, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Video container styles */
+.video-container {
+  position: relative;
+  background: linear-gradient(135deg, #12121a 0%, #0a0a0f 100%);
+  border: 2px solid #2a2a3a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(0, 255, 0, 0.03) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Chat bubble styles */
+.chat-bubble-user {
+  background: linear-gradient(135deg, #1a1a25 0%, #232330 100%);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.chat-bubble-ai {
+  background: linear-gradient(135deg, #0f1f1a 0%, #0a1510 100%);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* Input focus styles */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--neon-green);
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+/* Button hover effects */
+.btn-neon {
+  transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+  transform: translateY(-1px);
+}
